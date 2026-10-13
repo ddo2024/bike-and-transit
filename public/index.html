@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bike + Transit Router</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Bike → Transit → Destination</h1>
+
+      <form id="route-form" class="form-grid">
+        <label>
+          Origin
+          <input type="text" name="origin" value="Home" required />
+        </label>
+
+        <label>
+          Destination
+          <input type="text" name="destination" value="School" required />
+        </label>
+
+        <label>
+          Departure date/time
+          <input type="datetime-local" name="departureTime" required />
+        </label>
+
+        <label>
+          Bike speed (mph)
+          <input type="number" name="bikeSpeedMph" value="8" min="1" step="0.5" />
+        </label>
+
+        <label>
+          Max bike time (minutes)
+          <input type="number" name="maxBikeMinutes" value="" min="1" max="60" step="1" placeholder="Default: 30 min" />
+          <small>Blank searches up to 30 minutes. You can set a limit up to 60 minutes.</small>
+        </label>
+
+        <button type="submit">Find best route</button>
+      </form>
+
+      <div id="status" class="status"></div>
+      <section id="map-panel" class="map-panel" hidden>
+        <div id="map" class="map"></div>
+        <p id="map-status" class="map-status"></p>
+      </section>
+      <div id="results" class="results"></div>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
